@@ -173,8 +173,8 @@ NanoKtl2 : MIDIKtl {
 
 		var numActive = pxmixer.arGuis.count { |mon| mon.proxy.notNil };
 		var maxOff = (numActive - 8).max(0);
-		var pxOffset = (pxOffset + step).wrap(0, maxOff);
-		pxOffset = pxOffset;
+		var pxOffset2 = (pxOffset + step).wrap(0, maxOff);
+		pxOffset = pxOffset2;
 
 		pxmixer.highlightSlots(pxOffset, 8);
 	}
@@ -195,7 +195,7 @@ NanoKtl2 : MIDIKtl {
 			tleft: '0_58', tright: '0_59'
 		);
 
-		[ ["sl", (1..8)],
+		[ ["sl", (0..7)],
 			["kn", (16..23)],
 			["bu", (32..39)],
 			["bm", (48..55)],
