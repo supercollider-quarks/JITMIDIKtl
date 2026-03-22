@@ -108,7 +108,7 @@ NanoKtl2 : MIDIKtl {
 		spec = Spec.add(\mastaVol, [server.volume.min, server.volume.max, \db]);
 		this.mapCC( \sl8, { |val| server.volume.volume_(spec.map(val/127)) });
 
-		// map first 8 volumes to sliders
+		// map first 7 volumes to sliders
 		[\sl1, \sl2, \sl3, \sl4, \sl5, \sl6, \sl7].do { |key, i|
 			this.mapCC( key,
 				{ |ccval|
@@ -129,7 +129,7 @@ NanoKtl2 : MIDIKtl {
 			)
 		};
 		// upper buttons: send to editor
-		[\bu1, \bu2, \bu3, \bu4, \bu5, \bu6, \bu7, \bu8].do { |key, i|
+		[\bu1, \bu2, \bu3, \bu4, \bu5, \bu6, \bu7].do { |key, i|
 			this.mapCC( key, { |ccval|
 				defer { if (ccval > 0) {
 					pxmixer.arGuis[i + pxOffset].edBut.doAction
